@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>REG FORM</title>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align:center">
+          <h2>LUCENT ENGINEERING</h2>
+          <p>If you wish to fill a eform just fill it below</p>
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" action="">
+              <label for="fname">First Name</label><br>
+              <input type="text" id="fname" name="Name" placeholder="Your name..">
+              <label for="lname">Email</label>
+              <input type="text" id="lname" name="email" placeholder="Email">
+              <label for="country">Country</label>
+              <select id="country" name="color">
+                <option value="India">India</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="USA">USA</option>
+              </select>
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="message" placeholder="Write something.." style="height:170px"></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="column">
+            <img src="logo.1.jpg" style="width:71%">
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzfPdZ2-QycXpHFL0IBpbp5tMe-RzyWVOeA9qXYF3b9jI_YkgWED6iytcAl24nGpMHK/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
